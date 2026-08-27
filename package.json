@@ -1,0 +1,20 @@
+{
+  "name": "shopping",
+  "version": "1.0.0",
+  "description": "ecommerce app",
+  "license": "ISC",
+  "author": "shubham",
+  "type": "module",
+  "main": "app.js",
+  "scripts": {
+    "start": "node backend/app.js",
+    "dev": "SET NODE_ENV=DEVELOPMENT nodemon backend/app.js",
+    "prod": "SET NODE_ENV=PRODUCTION nodemon backend/app.js",
+    "seeder": "node backend/seeder/seeder.js"
+  },
+  "dependencies": {
+    "dotenv": "^17.3.1",
+    "express": "^5.2.1",
+    "mongoose": "^9.3.1"
+  }
+}
