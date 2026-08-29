@@ -20,7 +20,7 @@ export const newProducts = async (req , res) =>{
     });
 };
 
-//get single product details => /api/v1/products/+:id 
+//get single product details => /api/v1/products/:id 
 export const getProductDetails = async (req , res) =>{
    
     const product = await Product.findById(req?.params?.Id);
@@ -52,6 +52,25 @@ export const updateProduct = async (req , res) =>{
 
     res.status(200).json({
         product,
+    });
+};
+
+
+//delete product => /api/v1/products/:id 
+export const deleteProduct = async (req , res) =>{
+   
+    const product = await Product.findById(req?.params?.Id);
+
+    if(!product){
+        res.status(404).json({
+            error:"Product not found",
+        });
+    }
+    
+    await product.deleteOne();
+
+    res.status(200).json({
+        message: "product deleted",
     });
 };
 
