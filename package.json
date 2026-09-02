@@ -8,13 +8,17 @@
   "main": "app.js",
   "scripts": {
     "start": "node backend/app.js",
-    "dev": "SET NODE_ENV=DEVELOPMENT nodemon backend/app.js",
-    "prod": "SET NODE_ENV=PRODUCTION nodemon backend/app.js",
+    "dev": "cross-env NODE_ENV=DEVELOPMENT nodemon backend/app.js",
+    "prod": "cross-env NODE_ENV=PRODUCTION nodemon backend/app.js",
     "seeder": "node backend/seeder/seeder.js"
   },
   "dependencies": {
     "dotenv": "^17.3.1",
     "express": "^5.2.1",
     "mongoose": "^9.3.1"
+  },
+  "devDependencies": {
+    "cross-env": "^10.1.0",
+    "nodemon": "^3.1.14"
   }
 }

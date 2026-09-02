@@ -4,6 +4,14 @@ import dotenv from 'dotenv';
 import { connectDatabase } from "./config/dbConnect.js";
 import errorMiddleware from "./middlewares/errors.js";
 
+
+//Handle Uncaught Exception
+process.on('uncaughtException', (err) =>{
+    console.log(`ERROR: ${err}`);
+    console.log('Shutting down due to uncaught exception');
+    process.exit(1);
+})
+
 dotenv.config({ path: "backend/config/config.env" });
 // connect database
 connectDatabase();
